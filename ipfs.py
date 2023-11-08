@@ -8,7 +8,7 @@ def pin_to_ipfs(data):
 
 	# Upload the JSON string to IPFS
 	response = requests.post('https://ipfs.infura.io:5001/api/v0/add', files=files)
-	print('data:' data)
+	print(response.text)
 	return response
 
 def get_from_ipfs(cid,content_type="json"):
