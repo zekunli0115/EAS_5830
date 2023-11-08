@@ -8,6 +8,8 @@ def sign(m):
     w3 = Web3()
     # create an eth account and recover the address (derived from the public key) and private key
     # your code here
+    private_key = None
+    eth_address = None
     if w3.is_connected():
         account = Account.create()
 
