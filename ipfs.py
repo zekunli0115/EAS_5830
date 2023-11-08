@@ -3,11 +3,11 @@ import json
 
 def pin_to_ipfs(data):
 	assert isinstance(data,dict), f"Error pin_to_ipfs expects a dictionary"
-	# Convert the dictionary to a JSON string
+	# Convert the dictionary to a JSON object
 	files = json.dumps(data)
 
 	# Upload the JSON string to IPFS
-	response = requests.post('https://ipfs.infura.io:5001/api/v0/add', files=files)
+	response = requests.post('https://ipfs.infura.io:5001/api/v0/add', files=files, auth=(<project_id>,<project_secret>))
 	print(response.text)
 	return response
 
