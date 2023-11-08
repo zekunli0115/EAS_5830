@@ -8,6 +8,7 @@ def pin_to_ipfs(data):
 	json_string = json.dumps(data)
 
 	# Upload the JSON string to IPFS
+	ipfs = ipfs.Client()
 	cid = ipfs.add(json_string)
 
 	return cid
