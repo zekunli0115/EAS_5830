@@ -1,17 +1,15 @@
 import requests
 import json
-import ipfs
 
 def pin_to_ipfs(data):
 	assert isinstance(data,dict), f"Error pin_to_ipfs expects a dictionary"
 	# Convert the dictionary to a JSON string
-	json_string = json.dumps(data)
+	files = json.dumps(data)
 
 	# Upload the JSON string to IPFS
-	ipfs = ipfs.Client()
-	cid = ipfs.add(json_string)
-
-	return cid
+	response = requests.post('https://ipfs.infura.io:5001/api/v0/add', files=files)
+	print('data:' data)
+	return response
 
 def get_from_ipfs(cid,content_type="json"):
 	assert isinstance(cid,str), f"get_from_ipfs accepts a cid in the form of a string"
