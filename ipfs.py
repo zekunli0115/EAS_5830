@@ -16,6 +16,7 @@ def pin_to_ipfs(data):
 def get_from_ipfs(cid,content_type="json"):
 	assert isinstance(cid,str), f"get_from_ipfs accepts a cid in the form of a string"
 	# Use the CID to access the JSON string on IPFS
+	ipfs = ipfs.Client()
 	content = ipfs.cat(cid)
 
 	# Convert JSON string to a Python dictionary
